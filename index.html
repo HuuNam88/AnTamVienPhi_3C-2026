@@ -343,7 +343,7 @@ function renderDashboard(dataset){
 
   /* KPI Row 1 */
   const kpiRow1 = [
-    {label:'Tổng doanh thu (ròng)', value: fmtVND(tongDoanhThu,2), sub: fmtVNDFull(tongDoanhThu)},
+    {label:'Tổng doanh thu thực thu', value: fmtVND(tongDoanhThu,2), sub: fmtVNDFull(tongDoanhThu)},
     {label:'Tổng số hợp đồng', value: fmtInt(tongHopDong), sub:'đơn bảo hiểm đã cấp'},
     {label:'Số ngày đã khai thác', value: fmtInt(soNgayKhaiThac) + ' ngày', sub:'từ 01/01/2026 đến ' + fmtDate(ngayBaoCao)},
     {label:'Tỷ lệ hoàn thành KPI', value: fmtPct(tyLeHoanThanh), sub:'trên mục tiêu 100 tỷ', good:true},
