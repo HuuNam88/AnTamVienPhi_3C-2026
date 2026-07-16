@@ -157,26 +157,23 @@
   </div>
 
   <!-- DATA SOURCE PANEL -->
-  <div class="datasrc-panel">
+  <div class="datasrc-panel" style="display: none;">
     <div class="datasrc-row">
       <span class="datasrc-label">Google Sheet:</span>
       <input type="text" id="gsheetUrl" placeholder="Link Google Sheet ">
       <button id="gsheetLoadBtn" type="button">Tải từ Google Sheet</button>
     </div>
-    <div class="datasrc-panel" style="display:none;">
-    ... (các ô input và nút bấm bên trong) ...
-</div>
     <div class="datasrc-row">
       <span class="datasrc-label">Hoặc upload file:</span>
       <label class="filebtn" for="fileInput">Chọn file Excel/CSV</label>
-      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv">
+      <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none;">
       <button id="resetBtn" type="button" class="secondary">Khôi phục dữ liệu gốc</button>
-      <span id="dataStatus">Đang dùng dữ liệu mặc định (đến 12/07/2026)</span>
+      <span id="dataStatus">Đang dùng dữ liệu mặc định</span>
     </div>
     <div class="datasrc-note">
       Lựa chọn update dữ liệu qua Google Sheet hoặc Upload file theo mẫu file quy định.
     </div>
-  </div>
+</div>
 
   <!-- KPI HERO: TIẾN ĐỘ HOÀN THÀNH -->
   <div class="kpi-hero">
