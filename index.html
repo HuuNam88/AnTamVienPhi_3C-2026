@@ -170,6 +170,12 @@
       <button id="resetBtn" type="button" class="secondary">Khôi phục dữ liệu gốc</button>
       <span id="dataStatus">Đang dùng dữ liệu mặc định</span>
     </div>
+    <div class="datasrc-row">
+        <!-- Thêm nút này vào -->
+        <button id="refreshDataBtn" type="button" style="background-color: #28a745; color: white;">
+            Cập nhật dữ liệu mới nhất
+        </button>
+    </div>
     <div class="datasrc-note">
       Lựa chọn update dữ liệu qua Google Sheet hoặc Upload file theo mẫu file quy định.
     </div>
@@ -788,3 +794,29 @@ renderDashboard({
 </script>
 </body>
 </html>
+/* ============================= LÀM MỚI DỮ LIỆU ============================= */
+document.getElementById('refreshDataBtn').addEventListener('click', async function() {
+    const url = document.getElementById('gsheetUrl').value.trim();
+    if (!url) return;
+
+    setStatus('Đang làm mới dữ liệu từ Google Sheet...', '');
+    
+    try {
+        const csvUrl = toGSheetCSVUrl(url);
+        const resp = await fetch(csvUrl);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        
+        const text = await resp.text();
+        const aoa = parseCSVText(text);
+        const rawRows = parseRowsFromAOA(aoa);
+        const dataset = aggregateFromRawRows(rawRows);
+        
+        // Render lại dashboard với dữ liệu mới
+        renderDashboard(dataset);
+        
+        const now = new Date().toLocaleTimeString('vi-VN');
+        setStatus(`Đã cập nhật xong lúc ${now}. Tổng: ${dataset.tongHopDong.toLocaleString('vi-VN')} hợp đồng.`, 'ok');
+    } catch (err) {
+        setStatus('Lỗi cập nhật: ' + err.message, 'error');
+    }
+});
