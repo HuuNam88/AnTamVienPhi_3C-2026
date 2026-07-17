@@ -783,11 +783,14 @@ document.getElementById('resetBtn').addEventListener('click', function(){
   setStatus('Đang dùng dữ liệu mặc định (đến 12/07/2026)', '');
 });
 /* ============================= LÀM MỚI DỮ LIỆU ============================= */
-
 document.getElementById('refreshDataBtn').addEventListener('click', async function() {
+    const btn = document.getElementById('refreshDataBtn');
     const url = document.getElementById('gsheetUrl').value.trim();
     if (!url) return;
 
+    // 1. Giao diện khi bắt đầu tải
+    btn.disabled = true;
+    btn.innerText = 'Đang tải...';
     setStatus('Đang làm mới dữ liệu từ Google Sheet...', '');
     
     try {
@@ -807,9 +810,12 @@ document.getElementById('refreshDataBtn').addEventListener('click', async functi
         setStatus(`Đã cập nhật xong lúc ${now}. Tổng: ${dataset.tongHopDong.toLocaleString('vi-VN')} hợp đồng.`, 'ok');
     } catch (err) {
         setStatus('Lỗi cập nhật: ' + err.message, 'error');
+    } finally {
+        // 2. Giao diện khi xong (thành công hoặc lỗi)
+        btn.disabled = false;
+        btn.innerText = '🔄 Cập nhật dữ liệu mới nhất';
     }
 });
-
 /* ============================= KHỞI TẠO ============================= */
 renderDashboard({
   monthly: DEFAULT_MONTHLY,
