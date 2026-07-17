@@ -781,19 +781,6 @@ document.getElementById('resetBtn').addEventListener('click', function(){
   });
   setStatus('Đang dùng dữ liệu mặc định (đến 12/07/2026)', '');
 });
-
-/* ============================= KHỞI TẠO ============================= */
-renderDashboard({
-  monthly: DEFAULT_MONTHLY,
-  daily: DEFAULT_DAILY,
-  goi: DEFAULT_GOI,
-  tongDoanhThu: DEFAULT_TONG_DOANH_THU,
-  tongHopDong: DEFAULT_TONG_HOP_DONG,
-  ngayBaoCaoStr: DEFAULT_NGAY_BAO_CAO
-});
-</script>
-</body>
-</html>
 /* ============================= LÀM MỚI DỮ LIỆU ============================= */
 
 document.getElementById('refreshDataBtn').addEventListener('click', async function() {
@@ -821,3 +808,16 @@ document.getElementById('refreshDataBtn').addEventListener('click', async functi
         setStatus('Lỗi cập nhật: ' + err.message, 'error');
     }
 });
+
+/* ============================= KHỞI TẠO ============================= */
+renderDashboard({
+  monthly: DEFAULT_MONTHLY,
+  daily: DEFAULT_DAILY,
+  goi: DEFAULT_GOI,
+  tongDoanhThu: DEFAULT_TONG_DOANH_THU,
+  tongHopDong: DEFAULT_TONG_HOP_DONG,
+  ngayBaoCaoStr: DEFAULT_NGAY_BAO_CAO
+});
+</script>
+</body>
+</html>
