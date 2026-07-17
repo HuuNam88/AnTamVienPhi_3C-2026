@@ -156,8 +156,8 @@
     <div class="asof">Dữ liệu tính đến: <b id="asofDate">—</b></div>
   </div>
 
-  <!-- DATA SOURCE PANEL -->
-  <div class="datasrc-panel" style="display: none;">
+ <!-- DATA SOURCE PANEL (Ẩn) -->
+<div class="datasrc-panel" style="display: none;">
     <div class="datasrc-row">
       <span class="datasrc-label">Google Sheet:</span>
       <input type="text" id="gsheetUrl" placeholder="Link Google Sheet ">
@@ -169,18 +169,18 @@
       <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none;">
       <button id="resetBtn" type="button" class="secondary">Khôi phục dữ liệu gốc</button>
       <span id="dataStatus">Đang dùng dữ liệu mặc định</span>
-    </div>
-    <div class="datasrc-row">
-        <!-- Thêm nút này vào -->
-        <button id="refreshDataBtn" type="button" style="background-color: #28a745; color: white;">
-            Cập nhật dữ liệu mới nhất
-        </button>
-    </div>
+    </div> <!-- Đóng div datasrc-row thứ 2 -->
     <div class="datasrc-note">
       Lựa chọn update dữ liệu qua Google Sheet hoặc Upload file theo mẫu file quy định.
     </div>
 </div>
 
+<!-- Nút cập nhật (Hiển thị) -->
+<div style="text-align: right; margin-bottom: 10px;">
+    <button id="refreshDataBtn" type="button" style="padding: 8px 15px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 4px;">
+        🔄 Cập nhật dữ liệu mới nhất
+    </button>
+</div>
   <!-- KPI HERO: TIẾN ĐỘ HOÀN THÀNH -->
   <div class="kpi-hero">
     <div class="hero-card">
