@@ -729,7 +729,7 @@ async function loadFromGoogleSheet(isManualRefresh){
     const canhBaoNgay = soDongLoiNgay > 0
       ? ` ⚠️ ${soDongLoiNgay.toLocaleString('vi-VN')} dòng bị bỏ qua do cột Ngày trống hoặc không đọc được.`
       : '';
-    setStatus(`Đã cập nhật lúc ${nowStr} — ${rawRows.length.toLocaleString('vi-VN')} dòng, ${dataset.tongHopDong.toLocaleString('vi-VN')} hợp đồng.${canhBaoNgay}`, soDongLoiNgay > 0 ? 'error' : 'ok');
+    setStatus(`Đã cập nhật lúc ${nowStr}.${canhBaoNgay}`, soDongLoiNgay > 0 ? 'error' : 'ok');
   }catch(err){
     setStatus('Lỗi tải dữ liệu: ' + err.message, 'error');
   } finally {
