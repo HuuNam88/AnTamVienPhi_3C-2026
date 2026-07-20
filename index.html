@@ -609,7 +609,7 @@ function renderClaims(claims, tongDoanhThu, tongHopDong){
 
   const kpiClaim = [
     {label:'Bồi thường đã chi ', value: fmtVNDFull(claims.tongDuyet), sub: `${claims.count.toLocaleString('vi-VN')} hồ sơ`},
-    {label:'Loss ratio (chưa IBNR)', value: fmtPct(lossRatio,2), sub:'tham khảo — chưa điều chỉnh độ trễ báo cáo claim', flag:true},
+    {label:'Loss ratio (chưa IBNR)', value: fmtPct(lossRatio,2), sub:'tham khảo - tính trên năm tài chính', flag:true},
     {label:'Tần suất bồi thường', value: fmtPct(tanSuat,3), sub:'tính trên tổng số hợp đồng đã cấp'},
     {label:'Số tiền bồi thường bình quân/hồ sơ', value: fmtVNDFull(severityTB), sub:'số tiền duyệt / số hồ sơ bồi thường'}
   ];
