@@ -601,7 +601,7 @@ function renderClaims(claims, tongDoanhThu, tongHopDong){
   const tyTrongTopHosp = topHosp && claims.count>0 ? topHosp.count/claims.count*100 : 0;
   document.getElementById('claimNote').innerHTML =
     `<b>Lưu ý:</b> Chương trình triển khai từ đầu năm 2026), số hồ sơ bồi thường còn ít (${claims.count} hồ sơ)
-     nên loss ratio <b>chưa phản ánh đầy đủ rủi ro thực tế</b> — chưa bao gồm IBNR. ${topHosp ? `Cơ sở y tế "${topHosp.name}" đang chiếm ${tyTrongTopHosp.toFixed(0)}% số ca — cần lưu ý khi số lượng hồ sơ tăng.` : ''}`;
+     nên loss ratio <b>chưa phản ánh đầy đủ</b> — chưa bao gồm IBNR. ${topHosp ? `Cơ sở y tế "${topHosp.name}" đang chiếm ${tyTrongTopHosp.toFixed(0)}% số ca — cần lưu ý khi số lượng hồ sơ tăng.` : ''}`;
 
   /* Donut: cơ cấu theo loại hình */
   document.getElementById('claimTypeLegend').innerHTML = claims.byType.map(t=>
